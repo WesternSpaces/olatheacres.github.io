@@ -48,11 +48,12 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0.5rem 2rem;
+            padding: 0.75rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
+            min-height: 100px;
         }
         
         .logo img {
@@ -108,7 +109,7 @@
 
         /* Offset for fixed header navigation */
         #overview, #features, #farm, #gallery, #location, #contact {
-            scroll-margin-top: 80px;
+            scroll-margin-top: 110px;
         }
         
         /* Welcome Hero Section */
@@ -117,9 +118,9 @@
                 linear-gradient(135deg, rgba(248, 246, 243, 0.7) 0%, rgba(255, 255, 255, 0.7) 100%),
                 url('satelite_green.png');
             background-size: cover;
-            background-position: 80% center;
+            background-position: 70% center;
             background-attachment: fixed;
-            padding-top: 100px;
+            padding-top: 120px;
             position: relative;
             overflow: hidden;
         }
@@ -578,7 +579,7 @@
             .nav-menu {
                 display: none;
                 position: fixed;
-                top: 70px;
+                top: 100px;
                 left: 0;
                 right: 0;
                 background: var(--white);
@@ -605,7 +606,7 @@
             }
             
             .logo img {
-                height: 50px;
+                height: 80px;
             }
             
             /* Welcome Section */
