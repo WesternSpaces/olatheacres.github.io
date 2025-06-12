@@ -178,6 +178,22 @@
             font-weight: 300;
         }
         
+        .address-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .address-display i {
+            color: var(--warm);
+            font-size: 1.2em;
+        }
+        
         .price-display {
             display: flex;
             flex-direction: column;
@@ -887,6 +903,10 @@
                 <div class="corn-badge">🌽 Famous Sweet Corn Country 🌽</div>
                 <h1 class="welcome-title">Welcome to Olathe Acres</h1>
                 <p class="welcome-subtitle">Spacious 3-Bedroom Home on 4.6 Productive Acres</p>
+                <div class="address-display">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>2400 5725 Road, Olathe, CO 81425</span>
+                </div>
                 <div class="price-display">
                     <span class="price-amount">$559,000</span>
                     <span class="price-note">For Sale by Owner • Save on Realtor Fees</span>
@@ -1235,6 +1255,10 @@
                 currentImageIndex = index;
                 modalImg.src = imagesArray[index].src;
                 modalCaption.textContent = imagesArray[index].alt;
+                
+                // Update button states
+                prevBtn.disabled = index === 0;
+                nextBtn.disabled = index === imagesArray.length - 1;
             }
         }
         
