@@ -32,6 +32,7 @@
             line-height: 1.6;
             color: var(--text-dark);
             background-color: var(--white);
+            overflow-x: hidden;
         }
         
         /* Header */
@@ -51,11 +52,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
         
         .logo img {
-            height: 80px;
+            height: 60px;
             width: auto;
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
         }
         
         .nav-menu {
@@ -93,165 +107,8 @@
         }
 
         /* Offset for fixed header navigation */
-            #overview, #features, #farm, #gallery, #location, #contact {
-            scroll-margin-top: 90px;
-        }
-        
-        /* Hero Section */
-        .hero {
-            margin-top: 70px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            padding: 4rem 0;
-            color: var(--white);
-        }
-        
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .hero-text h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero-text .tagline {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-        
-        .price-box {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 10px;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-        
-        .price-box .price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-        
-        .price-box .price-note {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-        
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .btn-hero {
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-        
-        .btn-hero-primary {
-            background: var(--accent);
-            color: var(--primary);
-        }
-        
-        .btn-hero-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        .btn-hero-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-        
-        .btn-hero-secondary:hover {
-            background: var(--white);
-            color: var(--primary);
-        }
-        
-        .hero-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-        
-        .hero-feature {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: rgba(255,255,255,0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .hero-feature i {
-            font-size: 2rem;
-            color: var(--accent);
-        }
-        
-        .hero-feature-text {
-            flex: 1;
-        }
-        
-        .hero-feature-text .feature-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            display: block;
-        }
-        
-        .hero-feature-text .feature-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        /* Quick Stats */
-        .quick-stats {
-            background: var(--bg-light);
-            padding: 3rem 0;
-            display: none;
-        }
-        
-        .stats-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .stat-label {
-            color: var(--text-light);
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        #overview, #features, #farm, #gallery, #location, #contact {
+            scroll-margin-top: 80px;
         }
         
         /* Welcome Hero Section */
@@ -307,7 +164,7 @@
         
         .welcome-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2rem, 5vw, 4rem);
             color: var(--primary);
             margin-bottom: 1rem;
             font-weight: 700;
@@ -315,7 +172,7 @@
         }
         
         .welcome-subtitle {
-            font-size: 1.5rem;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
             color: var(--text-light);
             margin-bottom: 2rem;
             font-weight: 300;
@@ -333,16 +190,17 @@
         }
         
         .price-amount {
-            font-size: 3rem;
+            font-size: clamp(2rem, 6vw, 3rem);
             font-weight: 700;
             color: var(--primary);
             line-height: 1;
         }
         
         .price-note {
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             color: var(--text-light);
             font-weight: 500;
+            text-align: center;
         }
         
         /* Main Content Container */
@@ -359,13 +217,13 @@
         
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 4vw, 2.5rem);
             color: var(--primary);
             margin-bottom: 1rem;
         }
         
         .section-subtitle {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             color: var(--text-light);
             max-width: 600px;
             margin: 0 auto;
@@ -382,13 +240,14 @@
         .overview-content h3 {
             color: var(--primary);
             margin: 2rem 0 1rem;
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
         }
         
         .overview-content p {
             margin-bottom: 1rem;
             color: var(--text-dark);
             line-height: 1.8;
+            font-size: clamp(0.95rem, 2vw, 1rem);
         }
         
         .property-highlights {
@@ -402,7 +261,7 @@
         .property-highlights h3 {
             color: var(--primary);
             margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             text-align: center;
         }
         
@@ -419,17 +278,12 @@
             padding: 0.75rem 1rem;
             border-radius: 5px;
             transition: all 0.3s ease;
+            font-size: clamp(0.8rem, 2vw, 1rem);
         }
         
         .highlight-item:hover {
             transform: translateX(5px);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .highlight-item i {
-            color: var(--accent);
-            margin-right: 0.75rem;
-            font-size: 1.2rem;
         }
         
         /* Features Grid */
@@ -466,6 +320,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
         }
         
         .feature-card ul {
@@ -476,6 +331,7 @@
             padding: 0.5rem 0;
             display: flex;
             align-items: flex-start;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
         
         .feature-card li::before {
@@ -500,10 +356,11 @@
         
         .farm-feature {
             text-align: center;
+            padding: 1rem;
         }
         
         .farm-icon {
-            font-size: 3rem;
+            font-size: clamp(2.5rem, 5vw, 3rem);
             margin-bottom: 1rem;
             color: var(--primary);
         }
@@ -511,22 +368,23 @@
         .farm-feature h4 {
             color: var(--secondary);
             margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
         }
         
         .farm-feature p {
             color: var(--text-light);
-            font-size: 0.95rem;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
         }
         
         /* Gallery */
         .gallery-section {
             background: var(--bg-light);
+            padding: 4rem 0;
         }
         
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1rem;
             margin-top: 2rem;
         }
@@ -554,14 +412,6 @@
             transform: scale(1.05);
         }
         
-        .gallery-placeholder {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #999;
-        }
-        
         /* Location */
         .location-section {
             display: grid;
@@ -573,6 +423,12 @@
         .location-info h3 {
             color: var(--primary);
             margin-bottom: 1rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+        
+        .location-info p {
+            font-size: clamp(0.95rem, 2vw, 1rem);
+            margin-bottom: 1rem;
         }
         
         .location-features {
@@ -581,14 +437,16 @@
         
         .location-features li {
             list-style: none;
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 0.5rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
         
         .location-features i {
             color: var(--secondary);
+            flex-shrink: 0;
         }
         
         .map-container {
@@ -599,6 +457,7 @@
             align-items: center;
             justify-content: center;
             color: #999;
+            width: 100%;
         }
         
         /* Contact Section */
@@ -611,8 +470,12 @@
         
         .contact-section h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 4vw, 2.5rem);
             margin-bottom: 1rem;
+        }
+        
+        .contact-section p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
         }
         
         .contact-info {
@@ -627,11 +490,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 1.2rem;
-        }
-        
-        .contact-item i {
-            color: var(--accent);
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
         }
         
         .contact-buttons {
@@ -642,15 +501,21 @@
             flex-wrap: wrap;
         }
         
-        .btn-primary {
-            background: var(--accent);
-            color: var(--primary);
+        .btn-primary, .btn-secondary {
             padding: 1rem 2rem;
             border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
             display: inline-block;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            min-width: 140px;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
         }
         
         .btn-primary:hover {
@@ -662,12 +527,6 @@
             background: transparent;
             color: var(--white);
             border: 2px solid var(--white);
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
         }
         
         .btn-secondary:hover {
@@ -683,32 +542,192 @@
             text-align: center;
         }
         
+        footer p {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            margin: 0.5rem 0;
+        }
+        
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
+            /* Mobile Navigation */
+            .mobile-menu-toggle {
+                display: block;
             }
             
-            .hero-content {
-                grid-template-columns: 1fr;
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                gap: 1.5rem;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu a {
+                font-size: 1.1rem;
+                padding: 0.5rem 0;
+                width: 100%;
                 text-align: center;
             }
             
-            .hero-cta {
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .logo img {
+                height: 50px;
+            }
+            
+            /* Welcome Section */
+            .welcome-hero {
+                padding-top: 80px;
+            }
+            
+            .welcome-hero::before {
+                height: 200px;
+            }
+            
+            .welcome-header {
+                padding: 2rem 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .corn-badge {
+                font-size: 0.8rem;
+                padding: 0.4rem 1rem;
+            }
+            
+            .price-display {
+                padding: 1.5rem;
+            }
+            
+            /* Container padding adjustment */
+            .container {
+                padding: 3rem 1rem;
+            }
+            
+            /* Property Overview */
+            .property-overview {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .property-highlights {
+                padding: 1.5rem;
+                order: -1; /* Move highlights to top on mobile */
+            }
+            
+            .highlights-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            
+            .highlight-item {
+                padding: 1rem;
                 justify-content: center;
             }
             
-            .property-overview {
+            /* Features */
+            .features-grid {
                 grid-template-columns: 1fr;
+                padding: 0 1rem;
             }
             
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            /* Farm Grid */
+            .farm-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            /* Gallery */
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            
+            .gallery-item {
+                padding-top: 75%; /* Taller aspect ratio on mobile */
+            }
+            
+            /* Location */
             .location-section {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
+            .map-container {
+                height: 300px;
+                order: -1; /* Map first on mobile */
+            }
+            
+            /* Contact */
             .contact-info {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.5rem;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 2rem;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                padding: 1.2rem 2rem;
+            }
+            
+            /* Section spacing */
+            .section-header {
+                margin-bottom: 2rem;
+            }
+            
+            /* Scroll offset adjustment */
+            #overview, #features, #farm, #gallery, #location, #contact {
+                scroll-margin-top: 70px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Extra small devices */
+            .welcome-container {
+                padding: 0 1rem;
+            }
+            
+            .farm-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .overview-content h3:first-child {
+                margin-top: 0;
+            }
+        }
+        
+        /* Touch-friendly adjustments */
+        @media (hover: none) {
+            .gallery-item:hover {
+                transform: none;
+            }
+            
+            .feature-card:hover {
+                transform: none;
+            }
+            
+            .highlight-item:hover {
+                transform: none;
             }
         }
     </style>
@@ -720,11 +739,14 @@
             <div class="logo">
                 <img src="logo.png" alt="Olathe Acres">
             </div>
-            <ul class="nav-menu">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#overview">Overview</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#farm">Farm Life</a></li>
-                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#location">Location</a></li>
                 <li><a href="#contact" class="cta-button">Contact Owner</a></li>
             </ul>
@@ -744,9 +766,59 @@
                 </div>
             </div>
         </div>
-        
-        <div class="container" style="padding-top: 5rem;">
-        
+    </section>
+    
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Property Gallery</h2>
+                <p class="section-subtitle">See what makes this property special</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="frontside.jpeg" alt="Backyard with garden pergola">
+                </div>
+                <div class="gallery-item">
+                    <img src="flowers.jpeg" alt="Flower gardens with cannas">
+                </div>
+                <div class="gallery-item">
+                    <img src="front.jpeg" alt="Home exterior with green roof">
+                </div>
+                <div class="gallery-item">
+                    <img src="sideyard.jpeg" alt="Home and shop buildings">
+                </div>
+                <div class="gallery-item">
+                    <img src="kitchen.jpeg" alt="Kitchen with barn door cabinets">
+                </div>
+                <div class="gallery-item">
+                    <img src="table.jpeg" alt="Dining room with stone accents">
+                </div>
+                <div class="gallery-item">
+                    <img src="bathroom.jpeg" alt="Stone accent bathroom with blue fixtures">
+                </div>
+                <div class="gallery-item">
+                    <img src="mbathroom.jpeg" alt="Second bathroom with yellow sink">
+                </div>
+                <div class="gallery-item">
+                    <img src="sunroom.jpeg" alt="Sunroom gallery with plants">
+                </div>
+                <div class="gallery-item">
+                    <img src="eggs.jpeg" alt="Fresh eggs from the property">
+                </div>
+                <div class="gallery-item">
+                    <img src="harvest.jpeg" alt="Garden harvest vegetables">
+                </div>
+                <div class="gallery-item">
+                    <img src="squash.jpeg" alt="Squash and zucchini harvest">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Property Overview Section -->
+    <section class="container">
         <div class="property-overview">
             <div class="overview-content">
                 <h3>A Rare Opportunity</h3>
@@ -754,7 +826,8 @@
                     This exceptional property combines the best of country living with modern convenience. Built in <strong style="color: var(--primary); font-size: 1.1em;">1979</strong> with innovative passive solar design, this <strong style="color: var(--primary); font-size: 1.1em;">2,872 square foot 3 bedroom 2 bathroom</strong> home sits on <strong style="color: var(--primary); font-size: 1.1em;">4.6 irrigated acres</strong>.
                 </p>
                 <p>
-                    Designed with Colorado’s seasons in mind, this home features thick, insulated walls and passive solar construction for year-round comfort and energy efficiency. The kitchen and dining areas flow seamlessly together, while a separate living room with a wood-burning stove adds warmth and character. Additional spaces—including a den and sunroom—offer flexibility for work, hobbies, or quiet retreat.                </p>
+                    Designed with Colorado's seasons in mind, this home features thick, insulated walls and passive solar construction for year-round comfort and energy efficiency. The kitchen and dining areas flow seamlessly together, while a separate living room with a wood-burning stove adds warmth and character. Additional spaces—including a den and sunroom—offer flexibility for work, hobbies, or quiet retreat.
+                </p>
                 
                 <h3>Workshop & Storage</h3>
                 <p>
@@ -807,55 +880,6 @@
                         <span style="font-size: 1.2rem; margin-right: 0.75rem;">🔑</span>
                         <span>Move-in ready</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-     <!-- Gallery Section -->
-    <section id="gallery" class="gallery-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Property Gallery</h2>
-                <p class="section-subtitle">See what makes this property special</p>
-            </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="frontside.jpeg" alt="Backyard with garden pergola" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="gallery-item">
-                    <img src="flowers.jpeg" alt="Flower gardens with cannas" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="gallery-item">
-                    <img src="front.jpeg" alt="Home exterior with green roof" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="gallery-item">
-                    <img src="sideyard.jpeg" alt="Home and shop buildings" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="gallery-item">
-                    <img src="kitchen.jpeg" alt="Kitchen with barn door cabinets" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="gallery-item">
-                    <img src="table.jpeg" alt="Dining room with stone accents" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="gallery-item">
-                    <img src="bathroom.jpeg" alt="Stone accent bathroom with blue fixtures" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="gallery-item">
-                    <img src="mbathroom.jpeg" alt="Second bathroom with yellow sink" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-              <div class="gallery-item">
-                    <img src="sunroom.jpeg" alt="Sunroom gallery with plants" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="gallery-item">
-                    <img src="eggs.jpeg" alt="Fresh eggs from the property" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="gallery-item">
-                    <img src="harvest.jpeg" alt="Garden harvest vegetables" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="gallery-item">
-                    <img src="squash.jpeg" alt="Squash and zucchini harvest" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -1011,5 +1035,29 @@
         <p>&copy; 2025 Olathe Acres | For Sale By Owner</p>
         <p>2400 5725 Road, Olathe, Colorado 81425</p>
     </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileMenuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        
+        // Close mobile menu when clicking a link
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+    </script>
 </body>
 </html>
