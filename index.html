@@ -76,7 +76,7 @@
         
         .cta-button {
             background: var(--primary);
-            color: var(--white);
+            color: var(--white) !important;
             padding: 0.75rem 1.5rem;
             border-radius: 5px;
             text-decoration: none;
@@ -86,7 +86,13 @@
         
         .cta-button:hover {
             background: var(--secondary);
+            color: var(--white) !important;
             transform: translateY(-2px);
+        }
+
+        /* Offset for fixed header navigation */
+            #overview, #features, #farm, #gallery, #location, #contact {
+            scroll-margin-top: 100px;
         }
         
         /* Hero Section */
