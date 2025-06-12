@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olathe Acres | 4.6 Acres in Colorado | $559,000</title>
+    <meta name="description" content="For sale by owner: 3-bedroom home on 4.6 irrigated acres in Olathe, Colorado. Established gardens, 30x40 shop, mountain views. $559,000.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2c5f2d;
+            --secondary: #4a7c59;
+            --accent: #97bc62;
+            --warm: #e07a5f;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --bg-light: #f8f6f3;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+        
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 4rem 0;
+            color: var(--white);
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero-text .tagline {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .price-box {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .price-box .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-box .price-note {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-hero {
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-hero-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+        
+        .btn-hero-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .btn-hero-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-hero-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+        
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero-feature i {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+        
+        .hero-feature-text {
+            flex: 1;
+        }
+        
+        .hero-feature-text .feature-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .hero-feature-text .feature-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Quick Stats */
+        .quick-stats {
+            background: var(--bg-light);
+            padding: 3rem 0;
+            display: none;
+        }
+        
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            color: var(--text-light);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Welcome Hero Section */
+        .welcome-hero {
+            background: linear-gradient(135deg, #f8f6f3 0%, #ffffff 100%);
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .welcome-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            transform: skewY(-3deg);
+            transform-origin: top left;
+        }
+        
+        .welcome-container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .welcome-header {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .corn-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+        }
+        
+        .welcome-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+        
+        .welcome-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .price-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f6f3 0%, #ffffff 100%);
+            border-radius: 15px;
+            border: 3px solid var(--accent);
+        }
+        
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+        
+        .price-note {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Property Overview */
+        .property-overview {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .overview-content h3 {
+            color: var(--primary);
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .overview-content p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+        
+        .property-highlights {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            height: fit-content;
+            border: 2px solid var(--accent);
+        }
+        
+        .property-highlights h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            padding: 0.75rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .highlight-item i {
+            color: var(--accent);
+            margin-right: 0.75rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Features Grid */
+        .features-section {
+            background: var(--bg-light);
+            padding: 4rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .feature-card ul {
+            list-style: none;
+        }
+        
+        .feature-card li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .feature-card li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+        
+        /* Farm Life Section */
+        .farm-section {
+            background: var(--white);
+        }
+        
+        .farm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .farm-feature {
+            text-align: center;
+        }
+        
+        .farm-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .farm-feature h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .farm-feature p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        /* Gallery */
+        .gallery-section {
+            background: var(--bg-light);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            background: #ddd;
+            padding-top: 66.67%;
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #999;
+        }
+        
+        /* Location */
+        .location-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .location-info h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .location-features {
+            margin-top: 2rem;
+        }
+        
+        .location-features li {
+            list-style: none;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .location-features i {
+            color: var(--secondary);
+        }
+        
+        .map-container {
+            background: #ddd;
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .contact-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-item i {
+            color: var(--accent);
+        }
+        
+        .contact-buttons {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-cta {
+                justify-content: center;
+            }
+            
+            .property-overview {
+                grid-template-columns: 1fr;
+            }
+            
+            .location-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="olathe-acres-logo.png" alt="Olathe Acres">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#farm">Farm Life</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#contact" class="cta-button">Contact Owner</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Welcome Section with Integrated Stats -->
+    <section id="overview" class="welcome-hero">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <div class="corn-badge">🌽 Famous Olathe Sweet Corn Country 🌽</div>
+                <h1 class="welcome-title">Welcome to Olathe Acres</h1>
+                <p class="welcome-subtitle">Spacious 3-Bedroom Home on 4.6 Productive Acres</p>
+                <div class="price-display">
+                    <span class="price-amount">$559,000</span>
+                    <span class="price-note">For Sale by Owner • Save on Realtor Fees</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container" style="padding-top: 3rem;">
+        
+        <div class="property-overview">
+            <div class="overview-content">
+                <h3>A Rare Opportunity</h3>
+                <p>
+                    This exceptional property combines the best of country living with modern convenience. Built in <strong style="color: var(--primary); font-size: 1.1em;">1979</strong> with innovative passive solar design, this <strong style="color: var(--primary); font-size: 1.1em;">2,872 square foot</strong> home sits on <strong style="color: var(--primary); font-size: 1.1em;">4.6 irrigated acres</strong> of productive land.
+                </p>
+                <p>
+                    The thoughtful design features thick, insulated walls built for Colorado's seasons, energy-efficient construction, and abundant natural light. The open-concept layout seamlessly connects the kitchen, dining, and living areas, while additional spaces like the den and sunroom offer flexibility for work or relaxation. This home was well-designed and built to handle the seasonal extremes with comfort and efficiency.
+                </p>
+                
+                <h3>Workshop & Storage</h3>
+                <p>
+                    The property includes a substantial <strong style="color: var(--primary); font-size: 1.1em;">30' × 40' insulated shop</strong> building—perfect for your business, hobbies, or RV storage. With concrete floors and full electrical, it's ready for any project you have in mind.
+                </p>
+                
+                <h3>Productive Land</h3>
+                <p>
+                    The property comes with established gardens and a functioning hen house. Previous harvests have included abundant vegetables and fresh eggs daily. The irrigation rights ensure your gardens and pastures thrive during the growing season.
+                </p>
+                
+                <h3>True Freedom</h3>
+                <p>
+                    With <strong style="color: var(--primary); font-size: 1.1em;">no HOA fees or restrictions</strong>, you're free to live life on your terms. Whether you dream of horses grazing in the pasture, expanding the gardens, or simply enjoying the peace and privacy of rural living, this property provides the perfect canvas. Located just minutes from Highway 50, you'll enjoy country living without sacrificing convenience.
+                </p>
+            </div>
+            
+            <div class="property-highlights">
+                <h3>Property Highlights</h3>
+                <div class="highlights-grid">
+                    <div class="highlight-item">
+                        <span style="font-size: 1.2rem; margin-right: 0.75rem;">⛔</span>
+                        <span>No HOA restrictions</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span style="font-size: 1.2rem; margin-right: 0.75rem;">💧</span>
+                        <span>Irrigation water rights</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span style="font-size: 1.2rem; margin-right: 0.75rem;">🚰</span>
+                        <span>Domestic well water</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span style="font-size: 1.2rem; margin-right: 0.75rem;">🏠</span>
+                        <span>Septic system</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span style="font-size: 1.2rem; margin-right: 0.75rem;">⛰️</span>
+                        <span>Mountain views</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span style="font-size: 1.2rem; margin-right: 0.75rem;">🐴</span>
+                        <span>Fenced pastures</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span style="font-size: 1.2rem; margin-right: 0.75rem;">🌱</span>
+                        <span>Established gardens</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span style="font-size: 1.2rem; margin-right: 0.75rem;">🔑</span>
+                        <span>Move-in ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Farm Life Section -->
+    <section id="farm" class="farm-section container">
+        <div class="section-header">
+            <h2 class="section-title">Farm-Fresh Living</h2>
+            <p class="section-subtitle">Your own productive mini-farm from day one</p>
+        </div>
+        
+        <div class="farm-grid">
+            <div class="farm-feature">
+                <div class="farm-icon">🥚</div>
+                <h4>Fresh Eggs Daily</h4>
+                <p>Established flock with secure hen house and run</p>
+            </div>
+            
+            <div class="farm-feature">
+                <div class="farm-icon">🥬</div>
+                <h4>Abundant Harvest</h4>
+                <p>Productive gardens with proven growing conditions</p>
+            </div>
+            
+            <div class="farm-feature">
+                <div class="farm-icon">🌻</div>
+                <h4>Garden Beauty</h4>
+                <p>Established flower beds add color and attract pollinators</p>
+            </div>
+            
+            <div class="farm-feature">
+                <div class="farm-icon">💧</div>
+                <h4>Irrigation Rights</h4>
+                <p>Reliable water for gardens and pastures</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Property Features</h2>
+                <p class="section-subtitle">Everything you need for comfortable country living</p>
+            </div>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3><i class="fas fa-home"></i> Home Interior</h3>
+                <ul>
+                    <li>2,872 square feet of living space</li>
+                    <li>3 bedrooms, 2 bathrooms</li>
+                    <li>Open-concept kitchen and living area</li>
+                    <li>Thick insulated walls for all seasons</li>
+                    <li>Bonus den and sunroom</li>
+                    <li>Passive solar design</li>
+                    <li>Well-built for Colorado climate</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3><i class="fas fa-tools"></i> Workshop & Storage</h3>
+                <ul>
+                    <li>30' × 40' insulated shop building</li>
+                    <li>Concrete floors</li>
+                    <li>Electrical throughout</li>
+                    <li>High clearance for RVs</li>
+                    <li>Perfect for projects or business</li>
+                    <li>Additional storage areas</li>
+                    <li>Room for all your equipment</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3><i class="fas fa-seedling"></i> Land & Gardens</h3>
+                <ul>
+                    <li>4.6 fully usable acres</li>
+                    <li>Irrigation water rights included</li>
+                    <li>Established vegetable gardens</li>
+                    <li>Raised beds ready to plant</li>
+                    <li>Mature shade trees</li>
+                    <li>Fenced for horses</li>
+                    <li>Hen house and chicken run</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Property Gallery</h2>
+                <p class="section-subtitle">See what makes this property special</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">[Home Exterior]</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">[Kitchen]</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">[Living Area]</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">[Shop Building]</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">[Garden Harvest]</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">[Mountain Views]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Location Section -->
+    <section id="location" class="container">
+        <div class="section-header">
+            <h2 class="section-title">Prime Location</h2>
+            <p class="section-subtitle">Country living with convenient access</p>
+        </div>
+        
+        <div class="location-section">
+            <div class="location-info">
+                <h3>2400 5725 Road, Olathe, CO 81425</h3>
+                <p>
+                    Perfectly positioned for the best of both worlds - enjoy the peace and privacy of country living while staying connected to world-class amenities. Located in the heart of Colorado's Western Slope, home of the famous Olathe Sweet Corn.
+                </p>
+                
+                <ul class="location-features">
+                    <li>🌽 Heart of Olathe Sweet Corn country</li>
+                    <li>✈️ 15 minutes to Montrose Airport (direct flights nationwide)</li>
+                    <li>⛷️ 1.5 hours to Telluride - world-class skiing & dining</li>
+                    <li>🏔️ 30 minutes to Black Canyon National Park</li>
+                    <li>🛍️ 10 minutes to Delta's downtown shopping & services</li>
+                    <li>🛣️ Easy access to Highway 50</li>
+                </ul>
+            </div>
+            
+            <div class="map-container">
+                [Interactive Map]
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Ready to See Your Future Home?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">For sale by owner - save on realtor fees!</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>[Your Phone]</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>[Your Email]</span>
+            </div>
+        </div>
+        
+        <div class="contact-buttons">
+            <a href="tel:[your-phone]" class="btn-primary">Call Now</a>
+            <a href="mailto:[your-email]" class="btn-secondary">Send Email</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Olathe Acres | For Sale By Owner</p>
+        <p>2400 5725 Road, Olathe, Colorado 81425</p>
+    </footer>
+</body>
+</html>
