@@ -252,11 +252,21 @@
         }
         
         /* Property Overview */
+        .property-overview-section {
+            background: var(--white);
+            padding: 4rem 0;
+        }
+        
+        .property-overview-section .container {
+            padding: 0 2rem;
+        }
+        
         .property-overview {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 3rem;
-            margin-bottom: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .overview-content h3 {
@@ -973,7 +983,7 @@
     </section>
     
     <!-- Property Overview Section -->
-    <section class="container">
+    <section class="container property-overview-section">
         <div class="property-overview">
             <div class="overview-content">
                 <h3>A Rare Opportunity</h3>
