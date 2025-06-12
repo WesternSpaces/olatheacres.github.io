@@ -320,7 +320,7 @@
         
         /* Features Grid */
         .features-section {
-            background: var(--bg-light);
+            background: var(--white);
             padding: 4rem 0;
         }
         
@@ -376,7 +376,7 @@
         
         /* Farm Life Section */
         .farm-section {
-            background: var(--white);
+            background: var(--bg-light);
             padding: 4rem 0;
         }
         
@@ -446,6 +446,11 @@
         }
         
         /* Location */
+        .location-section-wrapper {
+            background: var(--bg-light);
+            padding: 4rem 0;
+        }
+        
         .location-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1143,39 +1148,41 @@
     </section>
     
     <!-- Location Section -->
-    <section id="location" class="container">
-        <div class="section-header">
-            <h2 class="section-title">Prime Location</h2>
-            <p class="section-subtitle">Country living with convenient access</p>
-        </div>
-        
-        <div class="location-section">
-            <div class="location-info">
-                <h3>2400 5725 Road, Olathe, CO 81425</h3>
-                <p>
-                    Perfectly positioned for the best of both worlds - enjoy the peace and privacy of country living while staying connected to world-class amenities. Located in the heart of Colorado's Western Slope, home of the famous Olathe Sweet Corn.
-                </p>
-                
-                <ul class="location-features">
-                    <li>🌽 Heart of Olathe Sweet Corn country</li>
-                    <li>✈️ 15 minutes to Montrose Airport (direct flights nationwide)</li>
-                    <li>⛷️ 1.5 hours to Telluride - world-class skiing & dining</li>
-                    <li>🏔️ 30 minutes to Black Canyon National Park</li>
-                    <li>🛍️ 10 minutes to Delta's downtown shopping & services</li>
-                    <li>🛣️ Easy access to Highway 50</li>
-                </ul>
+    <section id="location" class="location-section-wrapper">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Prime Location</h2>
+                <p class="section-subtitle">Country living with convenient access</p>
             </div>
             
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d834.6886951258377!2d-108.01732573891348!3d38.65738206375021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8740ac9bc21465ff%3A0xfee5288ba7a2b801!2s2400%205725%20Rd%2C%20Olathe%2C%20CO%2081425!5e1!3m2!1sen!2sus!4v1749747486620!5m2!1sen!2sus" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0; border-radius: 10px;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+            <div class="location-section">
+                <div class="location-info">
+                    <h3>2400 5725 Road, Olathe, CO 81425</h3>
+                    <p>
+                        Perfectly positioned for the best of both worlds - enjoy the peace and privacy of country living while staying connected to world-class amenities. Located in the heart of Colorado's Western Slope, home of the famous Olathe Sweet Corn.
+                    </p>
+                    
+                    <ul class="location-features">
+                        <li>🌽 Heart of Olathe Sweet Corn country</li>
+                        <li>✈️ 15 minutes to Montrose Airport (direct flights nationwide)</li>
+                        <li>⛷️ 1.5 hours to Telluride - world-class skiing & dining</li>
+                        <li>🏔️ 30 minutes to Black Canyon National Park</li>
+                        <li>🛍️ 10 minutes to Delta's downtown shopping & services</li>
+                        <li>🛣️ Easy access to Highway 50</li>
+                    </ul>
+                </div>
+                
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d834.6886951258377!2d-108.01732573891348!3d38.65738206375021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8740ac9bc21465ff%3A0xfee5288ba7a2b801!2s2400%205725%20Rd%2C%20Olathe%2C%20CO%2081425!5e1!3m2!1sen!2sus!4v1749747486620!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; border-radius: 10px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
         </div>
     </section>
