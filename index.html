@@ -113,7 +113,12 @@
         
         /* Welcome Hero Section */
         .welcome-hero {
-            background: linear-gradient(135deg, #f8f6f3 0%, #ffffff 100%);
+            background-image: 
+                linear-gradient(135deg, rgba(248, 246, 243, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%),
+                url('satelite_green.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             padding-top: 100px;
             position: relative;
             overflow: hidden;
@@ -126,7 +131,7 @@
             left: 0;
             right: 0;
             height: 300px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, rgba(44, 95, 45, 0.95) 0%, rgba(74, 124, 89, 0.95) 100%);
             transform: skewY(-3deg);
             transform-origin: top left;
         }
@@ -606,6 +611,7 @@
             /* Welcome Section */
             .welcome-hero {
                 padding-top: 80px;
+                background-attachment: scroll; /* Better performance on mobile */
             }
             
             .welcome-hero::before {
